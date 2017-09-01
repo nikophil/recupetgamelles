@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+
+{% set rubric = 'dashboard' %}
+
+{% block content %}
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-star"></i>
+                <h3>Admin Récup & Gamelles</h3>
+            </div>
+            <div class="widget-content">
+                <h6 class="bigstats">
+                    Bonjour et bienvenue dans l'espace administrateur
+                </h6>
+                <div class="shortcuts">
+                    <a href="{{ path('admin_home') }}" class="shortcut">
+                        <i class="shortcut-icon icon-home"></i>
+                        <span class="shortcut-label">Page d'accueil</span>
+                    </a>
+                    <a href="{{ path('admin_asso') }}" class="shortcut">
+                        <i class="shortcut-icon icon-group"></i>
+                        <span class="shortcut-label">L'association</span>
+                    </a>
+                    <a href="{{ path('admin_agenda') }}" class="shortcut">
+                        <i class="shortcut-icon icon-calendar"></i>
+                        <span class="shortcut-label">Agenda</span>
+                    </a>
+                    <a href="{{ path('admin_recettes') }}" class="shortcut">
+                        <i class="shortcut-icon icon-food"></i>
+                        <span class="shortcut-label">Recettes / Ateliers</span>
+                    </a>
+                    <a href="{{ path('admin_gourmet_bag') }}" class="shortcut">
+                        <i class="shortcut-icon icon-suitcase"></i>
+                        <span class="shortcut-label">Gourmet bag</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

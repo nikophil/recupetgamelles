@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Récup & Gamelles - Back office</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/bootstrap-responsive.min.css') }}" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+          rel="stylesheet">
+    <link href="{{ asset('css/admin/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/pages/dashboard.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+{% set rubric = rubric|default('home') %}
+
+{% include 'admin/header.html.twig' %}
+
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+            {% if app.session.flashBag.has('success') %}
+                <div class="row">
+                    <div class="span12">
+                        <div class="alert alert-success">
+                            {% for message in app.session.flashBag.get('success') %}
+                                {{ message }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if app.session.flashBag.has('error') %}
+                <div class="row">
+                    <div class="span12">
+                        <div class="alert alert-error">
+                            {% for message in app.session.flashBag.get('error') %}
+                                {{ message }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row">
+                {% block content %}
+                    default content
+                {% endblock content %}
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+</div>
+<!-- /main -->
+
+{% include 'admin/footer.html.twig' %}
+
+{% block jsBottom %}
+    <script src="{{ asset("js/admin/jquery-1.7.2.min.js") }}"></script>
+    <script src="{{ asset('js/admin/excanvas.min.js') }}"></script>
+    <script src="{{ asset('js/admin/chart.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/admin/bootstrap.js') }}"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script language="javascript" type="text/javascript" src="{{ asset('js/admin/full-calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('js/admin/base.js') }}"></script>
+{% endblock jsBottom %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: recupetggaubdd.mysql.db
+    database_port: 3306
+    database_name: recupetggaubdd
+    database_user: recupetggaubdd
+    database_password: rcptgBDD69
+    mailer_transport: sendmail
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    secret: 2d0ce558e35a9f1578593041cb57295f

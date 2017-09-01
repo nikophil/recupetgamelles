@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'info' %}
+
+{% block content %}
+    <section id="contact" class="content">
+
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {% for message in app.session.flashBag.get('success') %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
+        <h2 class="stanley">Infos et contacts</h2>
+        <div id="contactLeft">
+            <h3 class="stanley" >Une équipe engagée et volontaire !</h3>
+            <div class="contactLeftInner">
+                <h4 class="stanley">Au quotidien</h4>
+                <div class="item" style="padding-bottom: 30px;padding-top: 17px;">
+                    <div>
+                        <b>Prescilia BELLAT</b><br>
+                        <b>Coordinatrice projets</b><br>
+                        <i>Projets / Développement</i><br>
+                        <i>Conception / Partenariats</i><br>
+                        <a href="mailto:prescilia@recupetgamelles.fr">prescilia@recupetgamelles.fr</a><br>
+                        07.82.33.30.92
+                    </div>
+                    <div>
+                        <b>Sandy SCHULT</b><br>
+                        <b>Coordinatrice opérationnelle</b><br>
+                        <i>Gestion, devis, factures</i><br>
+                        <i>Bocalerie et Animations</i><br>
+                        <a href="mailto:sandy@recupetgamelles.fr">sandy@recupetgamelles.fr</a><br>
+                        06.28.63.24.55
+                    </div>
+                    <div>
+                        <b>Lucas BODET</b><br>
+                        <b>Chargé de mission</b><br>
+                        <i>Suivi de projets</i><br>
+                        <a href="mailto:lucas@recupetgamelles.fr">lucas@recupetgamelles.fr</a><br>
+                        07.86.09.03.78
+                    </div>
+                    <div>
+                        <b>Antinéa DUGUA</b><br>
+                        <b>Animatrice</b><br>
+                        <i>Animations / Bocalerie</i><br>
+                        <a href="mailto:antinea@recupetgamelles.fr">antinea@recupetgamelles.fr</a><br>
+                        06.62.37.46.89
+                    </div>
+                </div>
+            </div>
+            <div class="contactLeftInner">
+                <h4 class="stanley">Bureau</h4>
+                <div class="item">
+                    <b>Alexandra BOUCHEK</b><br>
+                    <b>Présidente</b><br>
+                    <a href="mailto:alexandra@recupetgamelles.fr">alexandra@recupetgamelles.fr</a><br>
+                    06.87.08.74.54<br><br>
+                    <b>Sophie GU&Eacute;RIN</b><br>
+                    <b>Trésorière</b><br>
+                    <a href="mailto:sophie@recupetgamelles.fr">sophie@recupetgamelles.fr</a>
+                </div>
+                <h4 class="stanley">Volontaires en<br> service civique</h4>
+                <div class="item">
+                    <i>Vie associative<br>Accueil et formation des bénévoles<br>Renfort en animation</i><br><br>
+                    <b>Morgan GONZALES</b><br>
+                    <a href="mailto:lucas@recupetgamelles.fr">morgan@recupetgamelles.fr</a><br><br>
+                    <b>Alix LAVIRON</b><br>
+                    <a href="mailto:alix@recupetgamelles.fr">alix@recupetgamelles.fr</a><br><br>
+                    ou <a href="mailto:bénévole@recupetgamelles.fr">bénévole@recupetgamelles.fr</a><br>
+                </div>
+            </div>
+
+            <h4 class="stanley" style="clear:both">Et un réseau d'adhérents et de bénévoles<br> toujours plus important !</h4>
+            <p class="figures">Chiffres 2016 : 51 adhérents, 203 bénévoles enregistrés, dont 61 actifs.</p>
+        </div>
+        <div id="contactRight">
+            <h3 class="stanley">Nous contacter</h3>
+            {{ form_start(form) }}
+            <div>
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+            </div>
+            <div>
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div>
+                {{ form_label(form.subject) }}
+                {{ form_widget(form.subject) }}
+            </div>
+            <div>
+                {{ form_label(form.message) }}
+                {{ form_widget(form.message) }}
+            </div>
+            <div class="submit">
+                <button type="submit">Envoyer</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+
+    <script>
+
+    </script>
+{% endblock content %}

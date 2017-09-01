@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'activite' %}
+
+{% block content %}
+    <section id="invendus" class="content">
+        <h2 class="stanley">Collecte d'invendus</h2>
+        <div id="invendusLeft">
+            <div id="invendusLeftInner">
+                <span>
+                    Toutes les semaines une équipe bénévole de l'asssociation RECUP & GAMELLES part à la chasse aux
+                    invendus alimentaires pour leur donner une seconde vie.
+                </span>
+            </div>
+            <p>
+                Différents acteurs développent leur démarche AntiGaspi à nos côtés :<br>
+                - des producteurs et des commerçants sur les marchés pour les fruits et légumes qui sont destinés à être jetés.<br>
+                - des commerces de proximité pour d'autres aliments comme, par exemple, du chocolat (chocolaterie, produits
+                à emballage endommagé) ou du pain (restaurants, espaces culturels).
+            </p>
+            <p>
+                Les produits collectés sont ensuite triés et utilisés lors des différentes activités de l'association :
+                Transformation pour l'activité Conserverie Solidaire et Ateliers ou Animations événementielles de l'association.
+            </p>
+
+            <div class="images">
+                <img src="{{ asset('images/collecte/photo_1.jpg') }}">
+                <img src="{{ asset('images/collecte/photo_2.jpg') }}">
+                <img src="{{ asset('images/collecte/photo_3.jpg') }}">
+            </div>
+            <div class="images">
+                <img src="{{ asset('images/collecte/photo_4.jpg') }}">
+            </div>
+        </div>
+        <div id="invendusRight">
+            <h3 class="stanley">Sécurité alimentaire</h3>
+            <p>
+                Les aliments collectés et transformés sont sélectionnés en fonction de leurs faibles risques
+                bactériologiques dans une démarche intégrée de sécurité alimentaire prenant en compte des pratiques et
+                des réglementations correspondant à l'exigence d'une hygiène de qualité.
+            </p>
+            <img src="{{ asset('images/collecte/photo_5.jpg') }}">
+            <img src="{{ asset('images/collecte/photo_6.jpg') }}">
+        </div>
+    </section>
+{% endblock content %}

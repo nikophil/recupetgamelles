@@ -1,0 +1,66 @@
+{% extends 'admin/base.html.twig' %}
+
+{% set rubric = 'agenda' %}
+
+{% block content %}
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-calendar"></i>
+                <h3>
+                    {% if app.request.get('_route') in ['admin_agenda_left_edit', 'admin_agenda_right_edit'] %}
+                        Modifier
+                    {% else %}
+                        Créer
+                    {% endif %}
+                    une entrée d'agenda (partie de gauche)</h3>
+            </div>
+            <div class="widget-content">
+                {{ form_start(form, {attr: {class: 'form-horizontal'}}) }}
+                    <fieldset>
+                        <div class="control-group">
+                            {{ form_label(form.name, 'Nom', {label_attr : {class : 'control-label'}} ) }}
+                            <div class="controls">
+                                {{ form_widget(form.name) }}
+                                <p class="help-block"><i>La nom n'apparaît pas sur le site, c'est juste une aide pour le retrouver dans la liste</i></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ form_label(form.date, 'Date', {label_attr : {class : 'control-label'}} ) }}
+                            <div class="controls">
+                                {{ form_widget(form.date) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ form_label(form.description, 'Description', {label_attr : {class : 'control-label'}} ) }}
+                            <div class="controls">
+                                {{ form_widget(form.description, {attr: {class: 'textarea'}}) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            {{ form_label(form.active, 'Publié ?', {label_attr : {class : 'control-label'}} ) }}
+                            <div class="controls">
+                                {{ form_widget(form.active) }}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <a class="btn" href="{{ path('admin_agenda') }}">Annuler</a>
+                        </div>
+                    </fieldset>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block jsBottom %}
+    {{ parent()  }}
+    <script>
+        if($('#agenda_item_right_description').length == 1) {
+            CKEDITOR.replace( 'admin_agenda_item_right_description' );
+        } else {
+            CKEDITOR.replace( 'admin_agenda_item_left_description' );
+        }
+    </script>
+{% endblock jsBottom %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'agenda' %}
+
+{% block content %}
+    <section id="agenda" class="content">
+        <h2 class="stanley">Agenda</h2>
+        <div id="agendaLeft">
+            <h3 class="stanley">Les événements de l'asso</h3>
+            {% for agenda in agendasLeft %}
+                <div class="item">
+                    <span class="date stanley">{{ agenda.date|localizeddate('long', 'none', 'fr_FR') }}</span>
+                    <div>
+                        <span>
+                            {{ agenda.description|raw }}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="agendaRight">
+            <h3 class="stanley">à voir aussi !</h3>
+            {% for agenda in agendasRight %}
+                <div class="item">
+                    <span class="date stanley">{{ agenda.date|localizeddate('none', 'none', 'fr_FR', null, 'MMMM') }}</span>
+                    <div>
+                        <span>
+                            {{ agenda.description|raw }}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

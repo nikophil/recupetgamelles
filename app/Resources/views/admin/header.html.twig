@@ -1,0 +1,34 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="{{ path('homepage') }}">Admin Recup & Gamelles </a>
+            <!--/.nav-collapse -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /navbar-inner -->
+</div>
+<!-- /navbar -->
+<div class="subnavbar">
+    <div class="subnavbar-inner">
+        <div class="container">
+            <ul class="mainnav">
+                <li {% if rubric == 'dashboard' %}class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
+                <li {% if rubric == 'home' %}class="active"{% endif %}><a href="{{ path('admin_home') }}"><i class="icon-home"></i><span>Page d'accueil</span> </a> </li>
+                <li {% if rubric == 'asso' %}class="active"{% endif %}><a href="{{ path('admin_asso') }}"><i class="icon-group"></i><span>L'association</span> </a> </li>
+                <li {% if rubric == 'agenda' %}class="active"{% endif %}><a href="{{ path('admin_agenda') }}"><i class="icon-calendar"></i><span>Agenda</span> </a> </li>
+                <li {% if rubric == 'recettes' %}class="active"{% endif %}><a href="{{ path('admin_recettes') }}"><i class="icon-food"></i><span>Recettes / Ateliers</span> </a> </li>
+                <li {% if rubric == 'gourmet-bag' %}class="active"{% endif %}><a href="{{ path('admin_gourmet_bag') }}"><i class="icon-suitcase"></i><span>Gourmet bag</span> </a> </li>
+                <li {% if rubric == 'ateliers' %}class="active"{% endif %}><a href="{{ path('admin_ateliers') }}"><i class="icon-cogs"></i><span>Ateliers</span> </a> </li>
+            </ul>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /subnavbar-inner -->
+</div>
+<!-- /subnavbar -->

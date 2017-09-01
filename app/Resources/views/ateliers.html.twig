@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'activite' %}
+
+{% block content %}
+    <section id="recettes" class="content page-ateliers">
+        <div id="recettesLeft">
+            <div class="title">
+                <img src="{{ asset('images/ateliers/animation-title.png') }}">
+            </div>
+            {#<img src="{{ asset('images/recettes/logo-recettes.png') }}" id="logo-recette">#}
+            <div class="recettesLeftInner">
+                {% for category in leftCategoriesWithAteliers %}
+                    <div class="category-title-container">
+                        <h4 class="stanley">{{ category.name|raw }}</h4>
+                        {% if category.subTitle %}<h5 class="stanley">{{ category.subTitle|raw }}</h5>{% endif %}
+                    </div>
+                    <ul class="item">
+                        {% for atelier in category.ateliers %}
+                            <li>
+                                {% if atelier.pdf %}
+                                    <a target="_blank" href="{{ asset('ateliers/' ~ atelier.pdf) }}">
+                                        {{ atelier.name }}
+                                        {% if atelier.subTitle %}<span>{{ atelier.subTitle }}</span>{% endif %}
+                                    </a>
+                                {% else %}
+                                    <span>
+                                        {{ atelier.name }}
+                                        {% if atelier.subTitle %}<span>{{ atelier.subTitle }}</span>{% endif %}
+                                    </span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="recettesLeftInner">
+                {% for category in rightCategoriesWithAteliers if category.ateliers|length > 0 %}
+                    <div class="category-title-container">
+                        <h4 class="stanley">{{ category.name|raw }}</h4>
+                        {% if category.subTitle %}<h5 class="stanley">{{ category.subTitle|raw }}</h5>{% endif %}
+                    </div>
+                    <ul class="item">
+                        {% for atelier in category.ateliers %}
+                            <li>
+                                {% if atelier.pdf %}
+                                    <a target="_blank" href="{{ asset('ateliers/' ~ atelier.pdf) }}">
+                                        {{ atelier.name }}
+                                        {% if atelier.subTitle %}<span>{{ atelier.subTitle }}</span>{% endif %}
+                                    </a>
+                                {% else %}
+                                    <span>
+                                        {{ atelier.name }}
+                                        {% if atelier.subTitle %}<span>{{ atelier.subTitle }}</span>{% endif %}
+                                    </span>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <p id="all-ateliers-link">
+                <a href="{{ asset('/upload/AnimationsRecupetGamelles.pdf') }}" target="_blank">Télécharger le guide complet de nos animations !</a>
+            </p>
+        </div>
+        <div id="ateliersRight">
+            <div>
+                <h4 class="stanley title">Objectifs</h4>
+                <ul>
+                    <li>Prendre conscience du gaspillage alimentaire et s'interroger sur nos habitudes de consommation.</li>
+                    <li>Découvrir une nouvelle façon de cuisiner et de conserver ses aliments, autour d'une alimentation saine et durable.</li>
+                    <li>Revaloriser des aliments destinés à être jetés, promouvoir une démarche Zéro déchet et réaliser de réelles économies.</li>
+                    <li>Favoriser le partage, le plaisir et la convivialité tout en créant du lien social.</li>
+                </ul>
+                <h4 class="stanley title">Contact / Réservation</h4>
+                <p>Tél. : 06 28 63 24 55 - Mail : sandy@recupetgamelles.fr<br>Tarifs sur demande. Possibilité d'adapter l'animation.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0px;" class="stanley title">La recup mobile</h4>
+                <h5 style="font-family: 'impregnable_personal_use_onRg';text-transform: none;font-size: 50px;">Cuisinette et expo AntiGaspi itinérante</h5>
+                <p style="color: black;text-align: center;font-size:20px;">Un outil innovant et ludique pour<br> accompagner à une alimentation responsable !</p>
+                <div class="img-container">
+                    <img src="{{ asset('/images/ateliers/recup-mobile-1.jpg') }}" style="float:left">
+                    <img src="{{ asset('/images/ateliers/recup-mobile-2.jpg') }}" style="float:right">
+                </div>
+                <span style="clear: both;display: block;"></span>
+                <p style="margin-top: 10px;color: black;text-align: center;font-size:17px;font-style: italic;">N'hésitez pas à demander La Recup Mobile pour une animation !</p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

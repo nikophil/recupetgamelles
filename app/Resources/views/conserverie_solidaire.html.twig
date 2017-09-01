@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'activite' %}
+
+{% block content %}
+    <section id="conserverie" class="content">
+        <h2 class="stanley">Bocalerie solidaire</h2>
+        <div id="conserverieLeft">
+            <div id="conserverieLeftInner">
+                <span>
+                    L'objectif de la bocalerie solidaire est de revaloriser des produits destinés à être jetés dans le
+                    circuit économique et social : qualité nutritionnelle, économie solidaire, création d'emploi et
+                    efficience environnementale.
+                </span>
+            </div>
+            <p>
+                Une équipe de bénévoles nous accompagne pour échanger sur les pratiques de conservation et développer
+                ensemble une gamme de bocaux savoureux et artisanaux, à petits prix, et accessibles à tous.
+            </p>
+            <p>
+                &Agrave; l'image de ses autres activités, R&G s'inscrit dans une logique de consommation responsable,
+                d'approvisionnement en circuit court et de production raisonnée. De plus, R&G met en place un
+                système de récupération de ses bio-déchets et une consigne pour les bocaux dans le respect de ses
+                engagement environnementaux.
+            </p>
+            <p>
+                La Bocalerie Solidaire est une des activités incontournables de R&G car elle permet un sauvetage
+                plus important d'invendus et développe les capacités d'auto-financement de l'association.<br>
+                R&G remercie la résidence l'Escale Lyonnaise pour le mise à disposition gratuite de ses cuisines
+                tous les mardis après-midi.
+            </p>
+
+            <span id="bdc">Plus d'info : contactez Sandy au 06 28 63 24 55 / sandy@recupetgamelles.fr</span>
+
+            <div class="images">
+                <img src="{{ asset('images/conserverie/photo_1.jpg') }}">
+                <img src="{{ asset('images/conserverie/bocalerie-1.jpg') }}">
+            </div>
+
+            <div class="images">
+                <img src="{{ asset('images/conserverie/bocalerie-3.jpg') }}">
+                <img src="{{ asset('images/conserverie/bocalerie-2.jpg') }}">
+            </div>
+        </div>
+        <div id="conserverieRight">
+            <div id="conserverieRightInner1">
+                <div class="item">
+                    <h3 class="stanley">Où se déroulent<br>les transformations&nbsp;?</h3>
+                    <p>
+                        Dans les cuisines de la résidence l'Escale lyonnaise au 100, rue de Créqui, 69006 Lyon.
+                    </p>
+                </div>
+                <div class="item">
+                    <h3 class="stanley">Quand ?</h3>
+                    <p>
+                        Tous les mardis après-midi.
+                    </p>
+                </div>
+                <div class="item">
+                    <h3 class="stanley">Quels produits transformés&nbsp;?</h3>
+                    <p>
+                        Les produits transformés sont collectés en amont auprès de petits commerces ou sur les marchés lyonnais.
+                        Pour minimiser les risques de sécurité alimentaires, nous retravaillons uniquement des fruits
+                        et légumes qui sont ensuite transformés de façon artisanale en confitures, confit, chutney ou ketchup maison.
+                    </p>
+                </div>
+            </div>
+            <div id="conserverieRightInner2">
+                <div class="item">
+                    <h3 class="stanley">Où trouver nos bocaux ?</h3>
+                    <ul>
+                        <li>&Agrave; l'épicerie La Fourmi, rue Terme à Lyon.</li>
+                        <li>&Agrave;  Epicentre, épicerie sociale et solidaire, 104 Route de Vienne, 69008 Lyon.</li>
+                        <li>Et pendant nos événements ou sur simple demande.</li>
+                        <li>Dans le réseau VRAC (Vers un réseau d’achat en commun)</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3 class="stanley">Prix</h3>
+                    <p>
+                        &Agrave; la revalorisatoin des aliments destinés à la poubelle est attaché l'objectif de la
+                        bocalerie solidaire de proposer des bocaux à prix abordables pour rendre accessibles à tous une
+                        alimentation saine et durable (consigne).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

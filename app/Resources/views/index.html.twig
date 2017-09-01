@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <section id="home" class="content">
+        <div id="homeLeft">
+            <h2 class="stanley">Bienvenue !</h2>
+            {{ homeText|raw }}
+        </div>
+        <div id="homeRight">
+            <div class="item extended-link">
+                <a href="{{ path('gourmet-bag') }}"><img src="{{ asset('images/home/picto_groumet_bag.png') }}"></a>
+                <p>
+                    <span>
+                        <span class="title stanley">Gourmet Bag</span><br>
+                        <span class="subtitle stanley">Le doggy bag à la française</span><br>
+                        <span class="desc">Financement participatif</span>
+                    </span>
+                </p>
+            </div>
+            <div class="item extended-link">
+                <a href="{{ path('invendus') }}"><img src="{{ asset('images/home/picto_collecte_invendus.png') }}"></a>
+                <p>
+                    <span>
+                        <span class="title stanley">Collecte d'invendus</span><br>
+                        <span class="desc">Auprès des partenaires</span>
+                    </span>
+                </p>
+            </div>
+            <div class="item extended-link">
+                <a href="{{ path('ateliers') }}"><img src="{{ asset('images/home/picto_atelier_antigaspi.png') }}"></a>
+                <p>
+                    <span>
+                        <span class="title stanley">Animations antigaspi</span><br>
+                        <span class="desc">Jeux, sensibilisation, cuisine, transformation, dégustation</span>
+                    </span>
+                </p>
+            </div>
+            <div class="item extended-link">
+                <a href="{{ path('conserverie') }}"><img
+                            src="{{ asset('images/home/picto_conserverie_solidaire.png') }}"></a>
+                <p>
+                    <span>
+                        <span class="title stanley">Bocalerie solidaire</span><br>
+                        <span class="subtitle stanley">Bocaux artisanaux</span><br>
+                        <span class="desc">Sauvetage et petits prix</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

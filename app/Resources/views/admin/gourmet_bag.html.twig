@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% set rubric = 'gourmet-bag' %}
+
+{% block content %}
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-suitcase"></i>
+                <h3>Gourmet bag</h3>
+            </div>
+            <div class="widget-content">
+                <form method="post" enctype="multipart/form-data" action="{{ url('admin_gourmet_bag_image_top') }}" class="form-horizontal">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="image-gourmet-bag-top">Image du haut (1385 * 800)</label>
+                            <div class="controls">
+                                <input type="file" name="image-gourmet-bag-top" id="image-gourmet-bag-top">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <a class="btn" href="{{ path('admin_dashboard') }}">Annuler</a>
+                        </div>
+                    </fieldset>
+                </form>
+                <img style="width:100%;" src="{{ asset('images/gourmet_bag/' ~ imageGourmetBagTop) }}?{{ random() }}">
+                <form method="post" enctype="multipart/form-data" action="{{ url('admin_gourmet_bag_image_bottom') }}" class="form-horizontal">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="image-gourmet-bag-bottom">Image du bas (1386 * 486)</label>
+                            <div class="controls">
+                                <input type="file" name="image-gourmet-bag-bottom" id="image-gourmet-bag-bottom">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <a class="btn" href="{{ path('admin_dashboard') }}">Annuler</a>
+                        </div>
+                    </fieldset>
+                </form>
+                <img style="width:100%;" src="{{ asset('images/gourmet_bag/' ~ imageGourmetBagBottom) }}?{{ random() }}">
+            </div>
+        </div>
+    </div>
+{% endblock content %}

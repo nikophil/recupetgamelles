@@ -1,0 +1,97 @@
+{% extends 'admin/base.html.twig' %}
+
+{% set rubric = 'agenda' %}
+
+{% block content %}
+    <div class="span6">
+        <div class="widget widget-table action-table">
+            <div class="widget-header">
+                <i class="icon-calendar"></i>
+                <h3>Liste des éléments d'agenda (partie gauche)</h3>
+                <a href="{{ path('admin_agenda_left_new') }}" title="Créer une entrée dans l'agenda" style="float: right;margin-right: 10px;display: inline-block">
+                    <i class="icon icon-2x icon-plus-sign text-primary" style="color:#428bca;"></i>
+                </a>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Date</th>
+                            <th class="td-actions">Publié</th>
+                            <th class="td-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for agenda in agendasLeft %}
+                            <tr>
+                                <td>{{ agenda.name }}</td>
+                                <td>{{ agenda.date|date('d-m-Y') }}</td>
+                                <td class="td-actions">
+                                    {% if agenda.active == true %}
+                                        <i class="icon icon-ok text-success" title="Non publié"></i>
+                                    {% else %}
+                                        <i class="icon icon-remove text-danger" title="Publié"></i>
+                                    {% endif %}
+                                </td>
+                                <td class="td-actions">
+                                    <a href="{{ path('admin_agenda_left_edit', {id : agenda.id}) }}"><i class="icon icon-2x icon-edit text-success" style="color:#468847"></i></a>&nbsp;
+                                    <a href="{{ path('admin_agenda_left_delete', {id : agenda.id}) }}"><i class="icon icon-2x icon-trash text-danger" style="color:#b94a48"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if agendasLeft|length == 0 %}
+                    <h6 class="bigstats">Il n'y a pas encore d'entrée dans l'agenda</h6>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="span6">
+        <div class="widget widget-table action-table">
+            <div class="widget-header">
+                <i class="icon-calendar"></i>
+                <h3>Liste des éléments d'agenda (partie droite)</h3>
+                <a href="{{ path('admin_agenda_right_new') }}" title="Créer une entrée dans l'agenda" style="float: right;margin-right: 10px;display: inline-block">
+                    <i class="icon icon-plus-sign text-primary icon-2x" style="color:#428bca"></i>
+                </a>
+            </div>
+            <div class="widget-content">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Date</th>
+                            <th class="td-actions">Publié</th>
+                            <th class="td-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for agenda in agendasRight %}
+                            <tr>
+                                <td>{{ agenda.name }}</td>
+                                <td>{{ agenda.date|date('d-m-Y') }}</td>
+                                <td class="td-actions">
+                                    {% if agenda.active == true %}
+                                        <i class="icon icon-ok text-success" title="Non publié"></i>
+                                    {% else %}
+                                        <i class="icon icon-remove text-danger" title="Publié"></i>
+                                    {% endif %}
+                                </td>
+                                <td class="td-actions">
+                                    <a href="{{ path('admin_agenda_right_edit', {id : agenda.id}) }}"><i class="icon icon-2x icon-edit text-success" style="color:#468847"></i></a>&nbsp;
+                                    <a href="{{ path('admin_agenda_right_delete', {id : agenda.id}) }}"><i class="icon icon-2x icon-trash text-danger" style="color:#b94a48"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if agendasRight|length == 0 %}
+                    <h6 class="bigstats">Il n'y a pas encore d'entrée dans l'agenda</h6>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

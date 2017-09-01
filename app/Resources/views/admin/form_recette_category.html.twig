@@ -1,0 +1,33 @@
+{% extends 'admin/base.html.twig' %}
+
+{% set rubric = 'recettes' %}
+
+{% block content %}
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-calendar"></i>
+                <h3>
+                    {% if app.request.get('_route') in ['admin_recette_category_edit'] %}
+                        Modifier
+                    {% else %}
+                        Créer
+                    {% endif %}
+                    une catégorie de recettes</h3>
+            </div>
+            <div class="widget-content">
+                {{ form_start(form, {attr: {class: 'form-horizontal'}}) }}
+                    <fieldset>
+                        {{ form_row(form.name) }}
+                        {{ form_row(form.order) }}
+                        {{ form_row(form.position) }}
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Enregistrer</button>
+                            <a class="btn" href="{{ path('admin_recettes') }}">Annuler</a>
+                        </div>
+                    </fieldset>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

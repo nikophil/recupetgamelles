@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% set rubric = 'recettes' %}
+
+{% block content %}
+    <section id="recettes" class="content">
+        <div id="recettesLeft">
+            <div class="title">
+                <img src="{{ asset('images/recettes/title-left.png') }}">
+            </div>
+            <img src="{{ asset('images/recettes/logo-recettes.png') }}" id="logo-recette">
+            <div class="recettesLeftInner">
+                {% for category in leftCategoriesWithRecettes %}
+                    <h4 class="stanley">{{ category.name }}</h4>
+                    <ul class="item">
+                        {% for recette in category.recettes %}
+                            <li><a target="_blank" href="{{ asset('recettes/' ~ recette.pdf) }}">{{ recette.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="recettesLeftInner">
+                {% for category in rightCategoriesWithRecettes if category.recettes|length > 0 %}
+                    <h4 class="stanley">{{ category.name }}</h4>
+                    <ul class="item">
+                        {% for recette in category.recettes %}
+                            <li><a target="_blank" href="{{ asset('recettes/' ~ recette.pdf) }}">{{ recette.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="recettesRight">
+            <div class="title">
+                <img src="{{ asset('images/recettes/title-right.png') }}">
+            </div>
+            <div id="recettesRightInner">
+                <img src="{{ asset('images/recettes/ateliers-boco.png') }}" alt="Atelier je fais mes bocaux">
+
+                {% if atelierActive.bool == true %}
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="TQ5XYW648BAML">
+                        <input type="hidden" name="on0" value="Atelier bocaux">
+                        <select name="os0">
+                            <option value="Adherent">Atelier €15,00 EUR</option>
+                            <option value="Particulier">Atelier + adhésion €20,00 EUR</option>
+                        </select>
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="image" src="http://www.recupetgamelles.fr/images/recettes/bttn-atelier-paypal.png" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                {% else %}
+                    <br><br><br><br><p>L'atelier est complet !</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+{% endblock content %}

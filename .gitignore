@@ -37,5 +37,9 @@
 # Build data
 /build/
 
+/vendor
+/var
+/docker/logs
+
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~

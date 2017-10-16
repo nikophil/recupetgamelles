@@ -1,0 +1,70 @@
+version: '2'
+
+services:
+    application:
+        image: c2is/application
+        environment:
+            - SYMFONY_ENV=dev
+        volumes:
+            - .:/var/www/symfony
+        tty: true
+        networks:
+            recupetgamelles: ~
+
+    php:
+        build: docker/containers/php-fpm
+        environment:
+            - SYMFONY_ENV=dev
+            - SYMFONY_DEBUG=1
+            - SYMFONY__MYSQL_USER_ENV=root
+            - SYMFONY__MYSQL_PASSWORD_ENV=root
+            - GIT_USERNAME="Nicolas PHILIPPE"
+            - GIT_EMAIL=nikophil@gmail.com
+        volumes_from:
+            - application
+        volumes:
+            - /home/niko/.ssh:/var/www/.ssh
+        links :
+            - mysql:mysql
+        working_dir: /var/www/symfony
+        networks:
+            recupetgamelles:
+                ipv4_address: 172.24.0.20
+
+    apache:
+        build: docker/containers/apache
+        ports:
+            - "8000:80"
+        links:
+            - php:php
+        volumes_from:
+            - application
+        volumes:
+            - ./docker/logs/apache/:/var/log/apache2
+        networks:
+            recupetgamelles:
+                ipv4_address: 172.24.0.21
+
+    mysql:
+        image: mysql:5.6
+        ports:
+            - "3306"
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_PASSWORD=root
+            - MYSQL_USER=root
+            - MYSQL_DATABASE=azureva
+        volumes_from:
+            - application
+        networks:
+            recupetgamelles:
+                ipv4_address: 172.24.0.22
+
+networks:
+    recupetgamelles:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.24.0.0/16
+                  gateway: 172.24.0.1

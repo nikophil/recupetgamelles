@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -e "Running command: docker-compose exec --user=www-data php composer $@ --working-dir=/var/www/symfony"
+echo -e "...............\n\n"
+
+docker-compose exec --user=www-data php composer $@ --working-dir=/var/www/symfony

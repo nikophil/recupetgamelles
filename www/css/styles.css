@@ -176,7 +176,8 @@ form input[type=text], form textarea, form select{border:1px solid #cacaca;backg
 .contactLeftInner{float:left;width:48%;
     margin-bottom:20px;}
 .contactLeftInner+.contactLeftInner{margin-left:4%}
-#contactRight{width:486px;float:left;height:986px;background:#03979F;padding:30px 40px 40px}
+#contactRight{width:486px;float:left;background:#03979F;padding:30px 30px 40px}
+#contactRight .address{width:50%;float:left;}
 
 #contact label{display:block;color:#fff;font-size:16px;font-weight: bold;margin-top:10px;}
 #contact input[type=text]{display:block;border:none;width:100%;height:40px;background: #fff;color:#000;font-size:16px;padding:0  10px;}

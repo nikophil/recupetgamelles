@@ -201,4 +201,12 @@ Une nouvelle demande de contact est arrivée :<br><br>
             'associationText' => $associationContent
         ]);
     }
+
+    /**
+     * @Route("/projets", name="projects")
+     */
+    public function projectsAction()
+    {
+        return $this->render('projects.html.twig');
+    }
 }

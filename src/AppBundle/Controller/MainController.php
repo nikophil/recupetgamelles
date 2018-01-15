@@ -121,24 +121,24 @@ class MainController extends Controller
         return $this->render('conserverie_solidaire.html.twig');
     }
 
-    /**
-     * @Route("/gourmet-bag", name="gourmet-bag")
-     */
-    public function gourmetBagAction(Request $request)
-    {
-        $imageGourmetBagTop = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:RichText')
-            ->findOneBy(['identifier' => 'gourmet-bag-image-top']);
-
-        $imageGourmetBagBottom = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:RichText')
-            ->findOneBy(['identifier' => 'gourmet-bag-image-bottom']);
-
-        return $this->render('gourmet_bag.html.twig', [
-            'imageGourmetBagTop'    => $imageGourmetBagTop,
-            'imageGourmetBagBottom' => $imageGourmetBagBottom,
-        ]);
-    }
+//    /**
+//     * @Route("/gourmet-bag", name="gourmet-bag")
+//     */
+//    public function gourmetBagAction(Request $request)
+//    {
+//        $imageGourmetBagTop = $this->get('doctrine.orm.entity_manager')
+//            ->getRepository('AppBundle:RichText')
+//            ->findOneBy(['identifier' => 'gourmet-bag-image-top']);
+//
+//        $imageGourmetBagBottom = $this->get('doctrine.orm.entity_manager')
+//            ->getRepository('AppBundle:RichText')
+//            ->findOneBy(['identifier' => 'gourmet-bag-image-bottom']);
+//
+//        return $this->render('gourmet_bag.html.twig', [
+//            'imageGourmetBagTop'    => $imageGourmetBagTop,
+//            'imageGourmetBagBottom' => $imageGourmetBagBottom,
+//        ]);
+//    }
 
     /**
      * @Route("/contact", name="contact")
@@ -203,10 +203,10 @@ Une nouvelle demande de contact est arrivée :<br><br>
     }
 
     /**
-     * @Route("/projets", name="projects")
+     * @Route("/accompagnement-0-gaspi-0-dechet", name="accompagnement")
      */
     public function projectsAction()
     {
-        return $this->render('projects.html.twig');
+        return $this->render('accompagnement.html.twig');
     }
 }

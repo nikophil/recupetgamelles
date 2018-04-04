@@ -1,5 +1,4 @@
-FROM c2is/apache
+FROM merces/apache
 
-ADD ./recupetgamelles.conf /etc/apache2/sites-available/
-RUN a2enmod vhost_alias
-RUN /bin/ln -sf ../sites-available/recupetgamelles.conf /etc/apache2/sites-enabled/
+ADD vhost.conf /etc/apache2/sites-available/
+RUN /bin/ln -sf ../sites-available/vhost.conf /etc/apache2/sites-enabled/

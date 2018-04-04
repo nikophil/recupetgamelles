@@ -1,18 +1,24 @@
 version: '2'
 
+volumes:
+  cache:
+
 services:
     application:
-        image: c2is/application
-        environment:
-            - SYMFONY_ENV=dev
+        build: docker/containers/application
         volumes:
-            - .:/var/www/symfony
+            - ./:/var/www/symfony
+            - cache:/var/www/symfony/var/cache
         tty: true
         networks:
             recupetgamelles: ~
+        environment:
+            - SYMFONY_ENV=dev
 
     php:
-        build: docker/containers/php-fpm
+        build: docker/containers/php
+        env_file:
+            - .env
         environment:
             - SYMFONY_ENV=dev
             - SYMFONY_DEBUG=1
@@ -22,49 +28,48 @@ services:
             - GIT_EMAIL=nikophil@gmail.com
         volumes_from:
             - application
-        volumes:
-            - /home/niko/.ssh:/var/www/.ssh
-        links :
+        links:
             - mysql:mysql
         working_dir: /var/www/symfony
         networks:
-            recupetgamelles:
-                ipv4_address: 172.24.0.20
+            recupetgamelles: ~
+        extra_hosts:
+            - '${HOSTNAME}:172.${IP_ADDR}.0.21'
 
     apache:
         build: docker/containers/apache
-        ports:
-            - "8000:80"
+        env_file:
+            - .env
         links:
             - php:php
         volumes_from:
             - application
         volumes:
             - ./docker/logs/apache/:/var/log/apache2
+        ports:
+            - ${APACHE_PORT}:80
         networks:
             recupetgamelles:
-                ipv4_address: 172.24.0.21
+                ipv4_address: 172.${IP_ADDR}.0.21
 
     mysql:
-        image: mysql:5.6
-        ports:
-            - "3306"
+        build: docker/containers/mysql
         restart: always
+        ports:
+            - ${MYSQL_PORT}:3306
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_PASSWORD=root
             - MYSQL_USER=root
-            - MYSQL_DATABASE=azureva
-        volumes_from:
-            - application
+            - MYSQL_DATABASE=recupetgamelles
         networks:
             recupetgamelles:
-                ipv4_address: 172.24.0.22
+                ipv4_address: 172.${IP_ADDR}.0.22
 
 networks:
     recupetgamelles:
         driver: bridge
         ipam:
             config:
-                - subnet: 172.24.0.0/16
-                  gateway: 172.24.0.1
+                - subnet: 172.${IP_ADDR}.0.0/16
+                  gateway: 172.${IP_ADDR}.0.1

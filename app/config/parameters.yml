@@ -2,7 +2,7 @@
 parameters:
     database_host: 172.34.0.21
     database_port: 3306
-    database_name: azureva
+    database_name: recupetgamelles
     database_user: root
     database_password: root
     mailer_transport: sendmail

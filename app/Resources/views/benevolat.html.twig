@@ -3,93 +3,95 @@
 {% set rubric = 'benevolat' %}
 
 {% block content %}
-<section id="benevolat" class="content">
+    <section id="benevolat" class="content">
 
-    {% if responsePayment|default('') == 'confirm' %}
-        <div class="alert alert-success">
-            Merci pour votre soutien à l'association ! Nous vous contacterons par e-mail très rapidement.
+        {% if responsePayment|default('') == 'confirm' %}
+            <div class="alert alert-success">
+                Merci pour votre soutien à l'association ! Nous vous contacterons par e-mail très rapidement.
+            </div>
+        {% elseif responsePayment|default('') == 'cancel' %}
+            <div class="alert alert-danger">
+                Une erreur est survenue pendant le traitement de votre paiement.
+            </div>
+        {% endif %}
+
+
+        <h2 class="stanley">Don, Adhésion, bénévolat</h2>
+        <div id="benevolatLeft">
+            <h3 class="stanley">Faire un don et financer un repas solidaire</h3>
+
+            <div id="repas-solidaire">
+                <p class="text-center">
+                    <img src="{{ asset('images/repas-solidaire.png') }}" alt="">
+                </p>
+                <p>
+                    Pour chaque don de <b>10 €</b>, nous finançons <b>1 repas solidaire complet !</b><br>
+                    Dès que nous atteignons l’équivalent de 50 repas, nous offrons un buffet solidaire pour 50 personnes à l’une de nos associations partenaires qui va proposer ce buffet à ses membres ; bénévoles et/ou personnes en situation d’isolement. <br>
+                    Ces buffets seront préparés ensemble, en incluant tous les membres des associations pour profiter de ce moment de partage et d’intégration qu’est la cuisine et partager des moments de plaisir autour d’une alimentation responsable et zéro déchet !
+                </p>
+
+                <div id="paypal-don">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="AJHQ9B757EF4A">
+                        <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+
+                    <a href="https://www.singa.com/" target="_blank"><img src="{{ asset('images/logo-singa.png') }}" alt=""></a>
+                    <a href="https://terredancrages.wordpress.com/" target="_blank"><img src="{{ asset('images/logo-terra-ancrage.png') }}" alt=""></a>
+                </div>
+            </div>
+
+            <h3 class="stanley">Devenir adhérent</h3>
+
+            <div id="become-member-left" class="become-member">
+                <h4>Pourquoi ?</h4>
+                <p>
+                    - soutenir le fonctionnement de l’association,
+                    - être acteur de la démocratie associative lors de l’assemblée générale,
+                    - suivre activement nos projets et nos actions.
+                    - être couvert par nos assurances lorsque vous êtes bénévole.
+                </p>
+            </div>
+            <div id="become-member-right" class="become-member">
+                <h4>Comment ?</h4>
+                <p>
+                    - par chèque, à l’ordre de Recup et Gamelles au 100 route de Vienne, 69008 Lyon.
+                    - en ligne (+43 cts frais de gestion),
+                    en cliquant ci-dessous.
+                </p>
+                <div id=paypal-adhesion">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="AKA3JGKBV7XBL">
+                        <input type="hidden" name="on0" value="Type d'adhésion">
+                        <select name="os0" style="display: inline-block;float: left;margin-right: 15px;margin-top: 3px;">
+                            <option value="Personne physique">Personne physique €5,43 EUR</option>
+                            <option value="Personne morale">Personne morale €52,02 EUR</option>
+                        </select>
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </div>
         </div>
-    {% elseif responsePayment|default('') == 'cancel' %}
-        <div class="alert alert-danger">
-            Une erreur est survenue pendant le traitement de votre paiement.
+        <div id="benevolatRight">
+            <h3 class="stanley">Devenir bénévole</h3>
+            <img src="{{ asset('images/devenir-benevole.jpg') }}">
+            <br><br><br>
+            <span>
+                Comment pouvez-vous aider l'association&nbsp;?
+            </span>
+            <p>
+                Première info, pas besoin de compétences particulières pour venir nous aider, juste de l’envie d’agir ! <br><br>
+                Vous serez accueillis et formés pour participer à nos actions Zéro gaspi - Zéro déchet (collecte d’invendus, animations, ateliers de cuisine, confection de bocaux, transport et dépôt de matériel, cuisine de petits plats, pour les buffets pédagogiques et solidaires etc).<br><br>
+                Vous êtes les bienvenus pour échanger avec toute l’équipe bénévole, volontaire ou salariée !<br><br>
+                RECUP & GAMELLES a besoin toujours de soutien et se construit grâce à la participation collective et la volonté d’agir.<br><br>
+            </p>
+
+            <span>&gt;&gt; Contactez nous à <a href="mailto:benevole@recupetgamelles.fr">benevole@recupetgamelles.fr</a></span>
         </div>
-    {% endif %}
-
-
-    <h2 class="stanley">Don, Adhésion, bénévolat</h2>
-    <div id="benevolatLeft">
-        <h3 class="stanley">Devenir adhérent</h3>
-
-        <p>
-            <b>Devenir adhérent, c'est :</b><br>
-            - soutenir le fonctionnement de l'association,<br>
-            - être acteur de la démocratie associative lors de l'assemblée générale,<br>
-            - suivre activement nos projets et nos actions.<br>
-            L'adhésion est fixée à 5 euros pour une personne physique et 50 euros pour une personne morale.
-            <br><br>
-            <span class="stanley">Moyens de paiement :</span><br>
-            - par chèque à l'ordre de Récup et Gamelles au 190, rue Cuvier 69006 Lyon<br>
-            - en espèce lors d'un événement ou d'une rencontre<br>
-            - en ligne, par paiement sécurisé paypal (+ frais de gestion), en choisissant le type d'adhésion ci-dessous :<br>
-        </p>
-
-        <div id=paypal-adhesion">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="AKA3JGKBV7XBL">
-                <input type="hidden" name="on0" value="Type d'adhésion">
-                <select name="os0" style="display: inline-block;float: left;margin-right: 15px;margin-top: 3px;">
-                    <option value="Personne physique">Personne physique €5,43 EUR</option>
-                    <option value="Personne morale">Personne morale €52,02 EUR</option>
-                </select>
-                <input type="hidden" name="currency_code" value="EUR">
-                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-            </form>
-        </div>
-<br>
-<br>
-        <h3 class="stanley">Faire un don</h3>
-        <p>
-            Nous sommes toujours à la recherche de financements pour nos actions, leur pérennité et pour notre capacité
-            à investir de nouveaux champs d'innovation et de recherche de la lutte contre le gaspillage alimentaire.
-            (paiement sécurisé par paypal)
-            <br><br>
-            <span class="stanley">Soutenez-nous vite !</span>
-        </p>
-        <div id="paypal-don">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="AJHQ9B757EF4A">
-                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-            </form>
-        </div>
-    </div>
-    <div id="benevolatRight">
-        <h3 class="stanley" >Devenir bénévole</h3>
-        <span>
-            Comment pouvez-vous aider l'association&nbsp;?
-        </span>
-        <p>
-            Vous pouvez choisir de donner un coup de main ponctuel sur un événement ou vous pouvez aussi vous engager à
-            plus long terme.<br>
-            Que vous ayez des compétences particulières ou que vous souhaitiez tout simplement nous aider dans nos
-            activité régulières :<br>
-            Collecte d'invendus,<br>
-            Animation, sensibilisation<br>
-            Transport et dépôt de matériel<br>
-            Cuisine de petits plats AntiGaspi,<br>
-            etc...<br>
-            Vous êts les bienvenus pour échanger avec toute l'équipe bénévole ou salariée.<br><br>
-            RECUP & GAMELLES a toujours besoin de soutien et se construit grâce à la participation collective et à la
-            volonté d'agir.
-        </p>
-
-        <span>
-            &gt;&gt;     Contactez Alexandra<br>
-            <a href="mailto:bénévole@recupetgamelles.fr">bénévole@recupetgamelles.fr</a>
-        </span>
-    </div>
-</section>
+    </section>
 {% endblock content %}

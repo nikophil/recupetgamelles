@@ -35,25 +35,12 @@
                 <img src="{{ asset('images/recettes/title-right.png') }}">
             </div>
             <div id="recettesRightInner">
-                <img src="{{ asset('images/recettes/ateliers-boco.png') }}" alt="Atelier je fais mes bocaux">
-
-                {% if atelierActive.bool == true %}
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="TQ5XYW648BAML">
-                        <input type="hidden" name="on0" value="Atelier bocaux">
-                        <select name="os0">
-                            <option value="Adherent">Atelier €15,00 EUR</option>
-                            <option value="Particulier">Atelier + adhésion €20,00 EUR</option>
-                        </select>
-                        <input type="hidden" name="currency_code" value="EUR">
-                        <input type="image" src="http://www.recupetgamelles.fr/images/recettes/bttn-atelier-paypal.png" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                {% else %}
-                    <br><br><br><br><p>L'atelier est complet !</p>
-                {% endif %}
-
+                <a target="_blank" href="{{ asset('recettes/LivretAntiGaspiNumerique.pdf') }}">
+                    <img src="{{ asset('images/recettes/download-livret.png') }}" alt="Télécharger le livret anti gaspi">
+                </a>
+                <a target="_blank" href="{{ asset('recettes/ExpoAntiGaspi_A3_web.pdf') }}">
+                    <img src="{{ asset('images/recettes/download-expo.png') }}" alt="Télécharger l'expo anti gaspi">
+                </a>
             </div>
         </div>
     </section>

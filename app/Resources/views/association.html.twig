@@ -5,13 +5,57 @@
 {% block content %}
     <section id="association" class="content">
         <div id="associationLeft">
-            <div id="associationLeftInner1">
-                <h2><img src="{{ asset('images/association/title_association.png') }}" alt="Sensibilisation au gaspillage alimentaire, valorisation des restes et des invendus !"></h2>
-                {{ associationText|raw }}
-            </div>
-            <div id="associationLeftInner2">
-                <h3>Projection schématique de la chaîne alimentaire et des actions de recup &amp; gamelles dans le dispositif global de lutte contre le gaspillage alimentaire</h3>
-                <img src="{{ asset('images/association/schema_action_distribution.png') }}">
+            <h2><img src="{{ asset('images/association/title_association.png') }}" alt="Sensibilisation au gaspillage alimentaire, valorisation des restes et des invendus !"></h2>
+            <div id="associationInner">
+                <div class="row">
+                    <div>
+                        <h3 class="stanley">Il était une fois, recup et gamelles :</h3>
+                        <p>
+                            <b>Recup et Gamelles</b> est une association lyonnaise, créée en 2014 par trois fondatrices engagées depuis de nombreuses années par les enjeux environnementaux et socio-éducatifs, en vue de les partager et de les diffuser au grand public.
+                            <br><br>
+                            Elle s'inscrit dans une démarche <b>d'économie circulaire, sociale et solidaire</b> et a pour vocation la <b>sensibilisation par l'Action</b> du grand public et des acteurs de l'alimentation à la lutte contre le gaspillage alimentaire et à la promotion du Zéro déchet en développant des moyens d'actions collectives et des pratiques du quotidien.
+                        </p>
+                    </div>
+                    <img src="{{ asset('images/association/fondatrices.png') }}">
+                </div>
+                <div class="row">
+                    <img src="{{ asset('images/association/gauffres.png') }}">
+                    <div>
+                        <p>
+                            <b>Recup et Gamelles</b> s'intéresse à la démarche <b>d’upcycling</b> et non plus seulement de recyclage, en la dépassant via l'apport de <b>valeurs ajoutées sociales et économiques</b> sur des produits destinés à devenir des déchets (exemples : fabrication de gaufres maison à partir de pain sec ou bien réalisation de pâte à tartiner maison réalisée avec du chocolat issu d'invendus).
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <h3 class="stanley">Notre démarche :</h3>
+                        <p>
+                            L'association prend en compte les démarches durables liées à l'alimentation dans ses pratiques&nbsp;:<br>
+                            - tout est fait maison,<br>
+                            - collecte d’invendus (produits non traités),<br>
+                            - achats de matières premières en Vrac,<br>
+                            - produits locaux,<br>
+                            - produits issus de l'agriculture Biologique pour les produits secs et à longue conservation,<br>
+                            - vaisselle réutilisable,<br>
+                            Mais aussi :<br>
+                            - réutilisation, conservation ou don des restes,<br>
+                            - compostage des déchets fermentescibles,<br>
+                            - alimentation saine, équilibrée et à faible impact énergétique..
+                        </p>
+                    </div>
+                    <img src="{{ asset('images/association/demarche.png') }}">
+                </div>
+                <div class="row">
+                    <img src="{{ asset('images/association/rapports.png') }}">
+                    <div>
+                        <h3 class="stanley">Rapports d'activités :</h3>
+                        <p>
+                            L’association met à disposition ses rapports annuels, d’activités et financiers pour que chacun puisse prendre connaissance des activités de l’association. <br><br>
+                            <span class="year">2017 :</span> <a href="{{ asset('rapports/rapport_activite_2017.pdf') }}">Rapport d'activités</a> {#- <a href="#">Rapport financier</a>#}<br>
+                            <span class="year">2016 :</span> <a href="{{ asset('rapports/rapport_activite_2016.pdf') }}">Rapport d'activités</a> {#- <a href="#">Rapport financier</a>#}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="associationRight">
@@ -19,29 +63,29 @@
             <h4 class="stanley">Dans le monde</h4>
             <div class="item">
                 <img src="{{ asset('images/association/picto_30pc.png') }}">
-                <p>C'est la proportion de la production alimentaire mondiale gaspillée, perdue ou jetée entre le champ et l'assiette.</p>
+                <p>C'est la proportion de la production alimentaire mondiale gaspillée, perdue ou jetée entre le champ et l’assiette.</p>
             </div>
             <div class="item">
-                <img src="{{ asset('images/association/picto_700milliards.png') }}">
-                <p>C'est le coût environnemental du gaspillage alimentaire tous les ans. L'équivalent du PIB de l'Arabie Saoudite en 2013.</p>
+                <img src="{{ asset('images/association/picto_12milliards.png') }}">
+                <p>C’est le nombre de personnes que la production mondiale pourrait nourrir, soit 1,6 fois la population mondiale en 2017.</p>
             </div>
             <h4 class="stanley">En France</h4>
             <div class="item">
-                <img src="{{ asset('images/association/picto_9millions.png') }}">
+                <img src="{{ asset('images/association/picto_10millions.png') }}">
                 <p>Le nombre de tonnes de nourriture qui serait gaspillée en France.</p>
             </div>
             <div class="item">
-                <img src="{{ asset('images/association/picto_70pc.png') }}">
-                <p>du gaspillage alimentaire en France esr réalisé par les ménages.</p>
+                <img src="{{ asset('images/association/picto_700milliards.png') }}">
+                <p>C’est le coût du gaspillage alimentaire en France, soit 1/3 du PIB de la France.</p>
             </div>
             <h4 class="stanley">Dans les foyers français</h4>
             <div class="item">
-                <img src="{{ asset('images/association/picto_79_kg_dechets_alimentaires_alimentaires.png') }}">
-                <p>Par année par individu dont 20 kg de gaspillage alimentaire.<br>En effet, cela correspond à 13kg de restes de repas, de fruits et de légumes non consommés et 7 kg d'aliments même pas déballés !</p>
+                <img src="{{ asset('images/association/picto_29_kg_aliments_jetes.png') }}">
+                <p>Par personne et par an, en moyenne, dont 7 kg encore emballés.</p>
             </div>
             <div class="item">
-                <img src="{{ asset('images/association/picto_56_repas.png') }}">
-                <p>Gaspillage alimentaire par français chaque année.<br> Soit trois semaines de repas quotidiens.</p>
+                <img src="{{ asset('images/association/picto_159euros.png') }}">
+                <p>Le coût du gaspillage alimentaire par an et par personne.</p>
             </div>
             <span>Sources : Ademe et FAO.</span>
         </div>

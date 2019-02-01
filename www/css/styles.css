@@ -323,32 +323,70 @@ form input[type=text], form textarea, form select {
     width: 1021px;
     margin-right: 30px;
     float: left;
-}
-
-#associationLeftInner1 {
-    height: 969px;
-    background: url(../images/association/bg_text.jpg) no-repeat;
+    background: url(../images/association/bg_text.jpg) repeat-y;
     padding: 56px 70px
 }
 
-#associationLeftInner1 h2 {
+#associationInner h3{
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+#associationInner .row{
+    margin-bottom: 30px;
+}
+
+#associationInner .row:nth-child(1) div{
+    width: 680px;
+    float: left;
+}
+
+#associationInner .row:nth-child(1) img{
+    float: right;
+}
+
+#associationInner .row:nth-child(2) div{
+    width: 480px;
+    float: right;
+    margin-top: 20px;
+}
+
+#associationInner .row:nth-child(2) img{
+    float: left;
+}
+
+#associationInner .row:nth-child(3) div{
+    width: 480px;
+    float: left;
+}
+
+#associationInner .row:nth-child(3) img{
+    float: right;
+}
+
+#associationInner .row:nth-child(4) div{
+    width: 680px;
+    float: right;
+}
+
+#associationInner .row:nth-child(4) img{
+    float: left;
+}
+
+#associationInner .row:nth-child(4) a{
+    font-style: italic;
+    font-weight: bold;
+}
+
+#associationInner .row .year{
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#associationLeft h2 {
     margin: 0 0 60px 0;
     text-align: center
-}
-
-#associationLeftInner2 {
-    margin-top: 30px;
-    background: url(../images/frise_pattern.png) repeat-x top center;
-    padding-top: 63px;
-    text-align: center;
-}
-
-#associationLeftInner2 h3 {
-    text-transform: uppercase;
-    color: #01959F;
-    font-size: 22px;
-    margin-bottom: 30px;
-    font-weight: bold;
 }
 
 #associationRight {
@@ -367,6 +405,7 @@ form input[type=text], form textarea, form select {
     padding: 10px 0;
     text-transform: uppercase;
     margin-bottom: 30px;
+    font-size: 22px
 }
 
 #associationRight h3 {
@@ -385,6 +424,10 @@ form input[type=text], form textarea, form select {
 
 #associationRight .item p {
     margin: 15px 0 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5rem;
 }
 
 #associationRight span {
@@ -393,9 +436,9 @@ form input[type=text], form textarea, form select {
 }
 
 #associationLeft p {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 28px;
-    text-align: justify;
+    text-align: left;
 }
 
 #associationLeft p + p {
@@ -846,10 +889,10 @@ form input[type=text], form textarea, form select {
 }
 
 #become-member-right{
-    background: #fff;
+    /*background: #fff;*/
     float: right;
     padding: 10px;
-    color: #000;
+    /*color: #000;*/
 }
 
 #benevolatRight span {

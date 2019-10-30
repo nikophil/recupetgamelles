@@ -638,6 +638,9 @@ form input[type=text], form textarea, form select {
 #conserverieRight {
     width: 486px;
     float: left;
+}
+
+#conserverieRight p, #conserverieRight ul li{
     font-size: 16px;
 }
 
@@ -750,6 +753,11 @@ form input[type=text], form textarea, form select {
 #contactLeft .contact-column {
     width: 50%;
     float: left;
+}
+
+#contactLeft .contact-row {
+    display: flex;
+    justify-content: space-around;
 }
 
 #contactLeft .contact-column-ca {
